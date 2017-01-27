@@ -3,8 +3,7 @@ var DnaTranscriber = function () {};
 
 DnaTranscriber.prototype.toRna = function (strand) {
 	
-	var i,
-			rna = '',
+	var rna = '',
 			dna = strand.toUpperCase();
 	
 	var compliments = {
@@ -14,7 +13,7 @@ DnaTranscriber.prototype.toRna = function (strand) {
 		T: "A"
 	};
 	
-	for (i = 0; i < dna.length; i++) {
+	for (var i = 0; i < dna.length; i++) {
 		rna += compliments[dna[i]];
 	}
 	
