@@ -3,24 +3,17 @@
 // convenience to get you started writing code faster.
 //
 
-var Year = function() {};
-
-Year.prototype.isLeap = function(year) {
-	
-	function hasRemainder (a, b) {
-		return a % b > 0;
-	}
-	
-	if (hasRemainder(year, 4)) {
-		return false;
-	} else {
-		if (!hasRemainder(year, 100)) {
-			return !hasRemainder(year, 400);
-		} else {
-			return true;
-		}
-	}
-	
+var Year = function(year) {
+	this.year = year;
 };
+
+Year.prototype.isLeap = function () {
+	var y = this.year;
+	return isDivisible(y, 4) && !isDivisible(y, 100) || isDivisible(y, 400);
+};
+
+function isDivisible (a, b) {
+	return a % b === 0;
+}
 
 module.exports = Year;
